@@ -1,11 +1,21 @@
 package org.usfirst.frc.team4932.robot;
 
+import org.usfirst.frc.team4932.vision.VisionServer;
+import org.usfirst.frc.team4932.vision.VisionUpdateReceiver;
+import org.usfirst.frc.team4932.vision.VisionUpdate;
+import org.usfirst.frc.team4932.vision.TargetInfo;
+
 import edu.wpi.first.wpilibj.IterativeRobot;
 
-public class Robot extends IterativeRobot {
+import java.util.List;
+
+public class Robot extends IterativeRobot implements VisionUpdateReceiver {
+	
+	VisionServer visionServer = VisionServer.getInstance();
 
 	@Override
 	public void robotInit() {
+		
 	}
 
 	@Override
@@ -22,6 +32,16 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void testPeriodic() {
+	}
+	
+	@Override
+	public void gotUpdate(VisionUpdate update) {
+		List<TargetInfo> infos = update.getTargets();
+		
+		for(TargetInfo target : infos) {
+			System.out.println("Target Data Y: " + target.getY() + " Z: " + target.getZ());
+		}
+		
 	}
 }
 
