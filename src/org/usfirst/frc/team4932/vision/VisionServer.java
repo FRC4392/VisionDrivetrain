@@ -16,7 +16,7 @@ import org.usfirst.frc.team4932.vision.messages.OffWireMessage;
 
 public class VisionServer implements Runnable {
 	
-	static int tempPort = -1;
+	static int tempPort = 8254;
 	
 	private static VisionServer server_instance = null;
 	private ServerSocket server_socket;

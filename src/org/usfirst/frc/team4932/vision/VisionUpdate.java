@@ -36,7 +36,7 @@ public class VisionUpdate {
 		VisionUpdate update = new VisionUpdate();
 		try {
 			JSONObject j = (JSONObject) parser.parse(updateString);
-			long capturedAgoMs = getOptLong(j.get("CapturedAgoMs"), 0);
+			long capturedAgoMs = getOptLong(j.get("capturedAgoMs"), 0);
 			if (capturedAgoMs == 0) {
 				update.valid = false;
 				return update;
@@ -54,7 +54,6 @@ public class VisionUpdate {
 					update.valid = false;
 					return update;
 				}
-				
 				targetInfos.add(new TargetInfo(y.get(), z.get()));
 				
 			}

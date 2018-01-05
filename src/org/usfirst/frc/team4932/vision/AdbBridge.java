@@ -64,6 +64,7 @@ public class AdbBridge {
 	}
 	
 	public void reversePortForward(int local_port, int remote_port) {
+		System.out.println("Reverse Port Forward");
 		runCommand("reverse tcp:" + local_port + " tcp:" + remote_port);
 	}
 	
